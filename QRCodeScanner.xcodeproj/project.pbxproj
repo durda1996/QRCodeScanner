@@ -24,6 +24,7 @@
 		E5D959362520AA2200F420E9 /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D959352520AA2200F420E9 /* UIViewController+Additions.swift */; };
 		E5D959392520D14B00F420E9 /* QRCodeCurrentDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D959382520D14B00F420E9 /* QRCodeCurrentDetailsViewModel.swift */; };
 		E5D9593B2520DC5900F420E9 /* QRCodeDetailsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9593A2520DC5900F420E9 /* QRCodeDetailsViewModelProtocol.swift */; };
+		E5D959412520F3CB00F420E9 /* ImageValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D959402520F3CB00F420E9 /* ImageValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		E5D959352520AA2200F420E9 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		E5D959382520D14B00F420E9 /* QRCodeCurrentDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeCurrentDetailsViewModel.swift; sourceTree = "<group>"; };
 		E5D9593A2520DC5900F420E9 /* QRCodeDetailsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeDetailsViewModelProtocol.swift; sourceTree = "<group>"; };
+		E5D959402520F3CB00F420E9 /* ImageValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			children = (
 				E5D959202520A21600F420E9 /* ActionSheet */,
 				E5D9591F2520A20200F420E9 /* Extensions */,
+				E5D959402520F3CB00F420E9 /* ImageValidator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				E5D959392520D14B00F420E9 /* QRCodeCurrentDetailsViewModel.swift in Sources */,
 				E5D9591025209D9300F420E9 /* GoogleImageResponse.swift in Sources */,
 				E5D9593B2520DC5900F420E9 /* QRCodeDetailsViewModelProtocol.swift in Sources */,
+				E5D959412520F3CB00F420E9 /* ImageValidator.swift in Sources */,
 				E5D958F3252099CC00F420E9 /* AppDelegate.swift in Sources */,
 				E5D959312520A63D00F420E9 /* QRCodeDetailsViewController.swift in Sources */,
 				E5D9590F25209D9300F420E9 /* ImageLoader.swift in Sources */,

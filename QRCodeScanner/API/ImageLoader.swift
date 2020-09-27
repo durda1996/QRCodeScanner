@@ -6,10 +6,10 @@
 //  Copyright © 2020 dmytrodurda. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class ImageLoader {
-    typealias Completion = (Result<UIImage, ImageLoaderError>) -> Void
+    typealias Completion = (Result<String, ImageLoaderError>) -> Void
     
     private let urlSession: URLSession
     
@@ -21,7 +21,7 @@ class ImageLoader {
         urlSession = URLSession(configuration: configuration)
     }
     
-    func fetchImage(matching query: String, completion: @escaping Completion) {
+    func fetchImageLink(matching query: String, completion: @escaping Completion) {
         guard let url = fetchImageUrl(for: query) else {
             completion(.failure(.invalidURL))
             return
@@ -73,25 +73,16 @@ private extension ImageLoader {
                 return
             }
             
-            guard let resultImage = image(fromLink: googleImageItem.link) ?? image(fromLink: googleImageItem.image.thumbnailLink) else {
+            if ImageValidator.isImageValid(for: googleImageItem.link) {
+                completion(.success(googleImageItem.link))
+            } else if ImageValidator.isImageValid(for: googleImageItem.image.thumbnailLink) {
+                completion(.success(googleImageItem.image.thumbnailLink))
+            } else {
                 completion(.failure(.invalidImageUrl))
-                return
             }
-            
-            completion(.success(resultImage))
         } catch {
             completion(.failure(.decodingError(cause: error)))
         }
-    }
-    
-    func image(fromLink link: String) -> UIImage? {
-        guard let url = URL(string: link),
-            let urlData = try? Data(contentsOf: url),
-            let image = UIImage(data: urlData) else {
-            return nil
-        }
-        
-        return image
     }
 }
 

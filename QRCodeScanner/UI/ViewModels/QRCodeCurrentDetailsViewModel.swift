@@ -27,11 +27,15 @@ extension QRCodeCurrentDetailsViewModel: QRCodeDetailsViewModelProtocol {
     }
     
     func image(completion: @escaping ImageCompletion) {
-        imageLoader.fetchImage(matching: titleText) { result in
+        imageLoader.fetchImageLink(matching: titleText) { result in
             DispatchQueue.main.async {
                 switch result {
-                case .success(let image):
-                    completion(image)
+                case .success(let imageLink):
+                    if let image = ImageValidator.image(for: imageLink) {
+                        completion(image)
+                    } else {
+                        completion(UIImage(named: "no-image")!)
+                    }
                 case .failure(let error):
                     print(error.localizedDescription)
                     completion(UIImage(named: "no-image")!)
