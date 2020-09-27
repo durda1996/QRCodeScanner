@@ -14,6 +14,9 @@
 		E5D958FD252099CC00F420E9 /* QRCodeScanner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5D958FB252099CC00F420E9 /* QRCodeScanner.xcdatamodeld */; };
 		E5D958FF252099D200F420E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D958FE252099D200F420E9 /* Assets.xcassets */; };
 		E5D95902252099D200F420E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5D95900252099D200F420E9 /* LaunchScreen.storyboard */; };
+		E5D9590E25209D9300F420E9 /* ImageLoaderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9590A25209D9300F420E9 /* ImageLoaderError.swift */; };
+		E5D9590F25209D9300F420E9 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9590B25209D9300F420E9 /* ImageLoader.swift */; };
+		E5D9591025209D9300F420E9 /* GoogleImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D9590D25209D9300F420E9 /* GoogleImageResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		E5D958FE252099D200F420E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5D95901252099D200F420E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5D95903252099D200F420E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5D9590A25209D9300F420E9 /* ImageLoaderError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoaderError.swift; sourceTree = "<group>"; };
+		E5D9590B25209D9300F420E9 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		E5D9590D25209D9300F420E9 /* GoogleImageResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleImageResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 		E5D958F1252099CC00F420E9 /* QRCodeScanner */ = {
 			isa = PBXGroup;
 			children = (
+				E5D9590925209D9300F420E9 /* API */,
 				E5D958F2252099CC00F420E9 /* AppDelegate.swift */,
 				E5D958F4252099CC00F420E9 /* SceneDelegate.swift */,
 				E5D958F6252099CC00F420E9 /* ViewController.swift */,
@@ -68,6 +75,24 @@
 				E5D958FB252099CC00F420E9 /* QRCodeScanner.xcdatamodeld */,
 			);
 			path = QRCodeScanner;
+			sourceTree = "<group>";
+		};
+		E5D9590925209D9300F420E9 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E5D9590C25209D9300F420E9 /* Models */,
+				E5D9590A25209D9300F420E9 /* ImageLoaderError.swift */,
+				E5D9590B25209D9300F420E9 /* ImageLoader.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E5D9590C25209D9300F420E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5D9590D25209D9300F420E9 /* GoogleImageResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,7 +167,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D958F7252099CC00F420E9 /* ViewController.swift in Sources */,
+				E5D9591025209D9300F420E9 /* GoogleImageResponse.swift in Sources */,
 				E5D958F3252099CC00F420E9 /* AppDelegate.swift in Sources */,
+				E5D9590F25209D9300F420E9 /* ImageLoader.swift in Sources */,
+				E5D9590E25209D9300F420E9 /* ImageLoaderError.swift in Sources */,
 				E5D958FD252099CC00F420E9 /* QRCodeScanner.xcdatamodeld in Sources */,
 				E5D958F5252099CC00F420E9 /* SceneDelegate.swift in Sources */,
 			);
