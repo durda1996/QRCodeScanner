@@ -11,7 +11,7 @@ import UIKit
 
 class ActionSheetTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        presented.view.roundCorners([.topLeft, .topRight], radius: 10)
+        presented.view.layer.cornerRadius = 10.0
         return ActionSheetPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
@@ -26,6 +26,8 @@ class ActionSheetPresentationController: UIPresentationController {
     }()
     
     override func containerViewWillLayoutSubviews() {
+        super.containerViewWillLayoutSubviews()
+        
         presentedView?.frame = frameOfPresentedViewInContainerView
     }
     

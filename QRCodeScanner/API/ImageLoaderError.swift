@@ -11,7 +11,7 @@ import Foundation
 enum ImageLoaderError: Error {
     case invalidURL
     case noImagesFound
-    case incorrectImageUrl
+    case invalidImageUrl
     case decodingError(cause: Error)
     case networkError(cause: Error)
     case unknownError
@@ -23,8 +23,8 @@ enum ImageLoaderError: Error {
             result = "Invalid URL"
         case .noImagesFound:
             result = "No images found"
-        case .incorrectImageUrl:
-            result = "Incorrect image URL"
+        case .invalidImageUrl:
+            result = "Invalid image URL"
         case .decodingError(let cause):
             result = "Decoding error - \(cause.localizedDescription)"
         case .networkError(let cause):

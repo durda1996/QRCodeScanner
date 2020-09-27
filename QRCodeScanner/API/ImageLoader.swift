@@ -66,24 +66,32 @@ private extension ImageLoader {
     
     func handle(data: Data, completion: Completion) {
         do {
-            let result = try JSONDecoder().decode(GoogleImageResponse.self, from: data)
+            let result = try JSONDecoder().decode(ImageLoaderResponse.self, from: data)
             
             guard let googleImageItem = result.items.first else {
                 completion(.failure(.noImagesFound))
                 return
             }
             
-            guard let url = URL(string: googleImageItem.link),
-                let urlData = try? Data(contentsOf: url),
-                let image = UIImage(data: urlData) else {
-                completion(.failure(.incorrectImageUrl))
+            guard let resultImage = image(fromLink: googleImageItem.link) ?? image(fromLink: googleImageItem.image.thumbnailLink) else {
+                completion(.failure(.invalidImageUrl))
                 return
             }
             
-            completion(.success(image))
+            completion(.success(resultImage))
         } catch {
             completion(.failure(.decodingError(cause: error)))
         }
+    }
+    
+    func image(fromLink link: String) -> UIImage? {
+        guard let url = URL(string: link),
+            let urlData = try? Data(contentsOf: url),
+            let image = UIImage(data: urlData) else {
+            return nil
+        }
+        
+        return image
     }
 }
 

@@ -8,12 +8,24 @@
 
 import Foundation
 
-struct GoogleImageResponse: Decodable {
-    let items: [GoogleImageItemResponse]
+struct ImageLoaderResponse: Decodable {
+    let items: [Item]
 }
 
-struct GoogleImageItemResponse: Decodable {
-    let link: String
+extension ImageLoaderResponse {
+    struct Item: Decodable {
+        let link: String
+        let image: Image
+    }
 }
+
+extension ImageLoaderResponse.Item {
+    struct Image: Decodable {
+        let thumbnailLink: String
+    }
+}
+
+
+
 
 
