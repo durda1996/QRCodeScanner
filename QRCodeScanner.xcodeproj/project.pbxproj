@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5C4749325263DF400ACD1AE /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E5C4749225263DF400ACD1AE /* RxSwift */; };
+		E5C4749525263DF400ACD1AE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E5C4749425263DF400ACD1AE /* RxCocoa */; };
 		E5D958F3252099CC00F420E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D958F2252099CC00F420E9 /* AppDelegate.swift */; };
 		E5D958F5252099CC00F420E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D958F4252099CC00F420E9 /* SceneDelegate.swift */; };
 		E5D958F7252099CC00F420E9 /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D958F6252099CC00F420E9 /* QRCodeScannerViewController.swift */; };
@@ -55,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C4749525263DF400ACD1AE /* RxCocoa in Frameworks */,
+				E5C4749325263DF400ACD1AE /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +187,10 @@
 			dependencies = (
 			);
 			name = QRCodeScanner;
+			packageProductDependencies = (
+				E5C4749225263DF400ACD1AE /* RxSwift */,
+				E5C4749425263DF400ACD1AE /* RxCocoa */,
+			);
 			productName = QRCodeScanner;
 			productReference = E5D958EF252099CC00F420E9 /* QRCodeScanner.app */;
 			productType = "com.apple.product-type.application";
@@ -211,6 +219,9 @@
 				Base,
 			);
 			mainGroup = E5D958E6252099CC00F420E9;
+			packageReferences = (
+				E5C4749125263DF400ACD1AE /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = E5D958F0252099CC00F420E9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -442,6 +453,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E5C4749125263DF400ACD1AE /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E5C4749225263DF400ACD1AE /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5C4749125263DF400ACD1AE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		E5C4749425263DF400ACD1AE /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5C4749125263DF400ACD1AE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E5D958FB252099CC00F420E9 /* QRCodeScanner.xcdatamodeld */ = {
