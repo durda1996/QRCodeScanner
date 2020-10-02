@@ -11,7 +11,8 @@ import RxSwift
 import RxCocoa
 
 class DetailsViewController: ActionSheetViewController {
-    @IBOutlet private var searchTextLabel: UILabel!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var detailsLabel: UILabel!
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var spinner: UIActivityIndicatorView!
     @IBOutlet private var bottomActionButton: UIButton!
@@ -38,7 +39,8 @@ class DetailsViewController: ActionSheetViewController {
         super.viewDidLoad()
         
         bottomActionButton.layer.cornerRadius = 10.0
-        searchTextLabel.text = viewModel.titleText.inQuotationMarks
+        titleLabel.text = viewModel.titleText
+        detailsLabel.text = viewModel.detailsText
         bottomActionButton.setTitle(viewModel.bottomButtonAction.localizedString, for: .normal)
         
         viewModel.isLoading
@@ -80,7 +82,7 @@ class DetailsViewController: ActionSheetViewController {
         switch viewModel.bottomButtonAction {
         case .save:
             do {
-                try storageManager.saveImage(withName: viewModel.titleText, imageLink: imageLink)
+                try storageManager.saveImage(withName: viewModel.imageName, imageLink: imageLink)
                 dismiss(animated: true)
             } catch {
                 print(error)

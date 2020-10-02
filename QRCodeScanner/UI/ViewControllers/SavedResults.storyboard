@@ -77,7 +77,11 @@
                         <viewLayoutGuide key="safeArea" id="70E-js-AIp"/>
                     </view>
                     <navigationItem key="navigationItem" title="Saved images" id="aDY-Gz-ALR">
-                        <barButtonItem key="rightBarButtonItem" title="Close" id="e3x-Ch-vFj"/>
+                        <barButtonItem key="rightBarButtonItem" title="Close" id="e3x-Ch-vFj">
+                            <connections>
+                                <action selector="closeDidTap:" destination="SH6-6E-08D" id="5ZT-aq-dJa"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="qtS-7L-nIt" id="DW1-B0-KCN"/>

@@ -23,6 +23,8 @@ enum BottomButtonAction {
 
 protocol DetailsViewModelProtocol {
     var titleText: String { get }
+    var detailsText: String { get }
+    var imageName: String { get }
     var bottomButtonAction: BottomButtonAction { get }
     
     var imageLink: PublishSubject<String> { get }

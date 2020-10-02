@@ -2,7 +2,7 @@
 //  Date+Additions.swift
 //  QRCodeScanner
 //
-//  Created by Dimon on 02/10/2020.
+//  Created by Dmytro Durda on 02/10/2020.
 //  Copyright © 2020 dmytrodurda. All rights reserved.
 //
 

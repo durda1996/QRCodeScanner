@@ -6,7 +6,7 @@
 //  Copyright © 2020 dmytrodurda. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import RxSwift
 
 struct CurrentDetailsViewModel {
@@ -22,17 +22,19 @@ struct CurrentDetailsViewModel {
     }
 }
 
-extension CurrentDetailsViewModel : DetailsViewModelProtocol {
-    var titleText: String { searchText }
+extension CurrentDetailsViewModel: DetailsViewModelProtocol {
+    var titleText: String { "Found" }
+    var detailsText: String { searchText.inQuotationMarks }
+    var imageName: String { searchText }
+    
     var bottomButtonAction: BottomButtonAction { .save }
     
     func performFetch() {
         isLoading.onNext(true)
-        imageLoader.fetchImageLink(matching: titleText) { result in
+        imageLoader.fetchImageLink(matching: imageName) { result in
             self.isLoading.onNext(false)
             switch result {
             case .success(let imageLink):
-                self.imageLink.onNext(imageLink)
                 self.imageLink.onNext(imageLink)
             case .failure(let error):
                 self.error.onNext(error)

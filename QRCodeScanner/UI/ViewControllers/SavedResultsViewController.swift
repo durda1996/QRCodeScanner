@@ -33,9 +33,20 @@ class SavedResultsViewController: UIViewController {
         
         tableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
-                print("did select cell at index path \(indexPath)")
+                guard let image = try? self.viewModel.images.value()[indexPath.row] else {
+                    return
+                }
+                
+                let detailsViewModel = SavedImageDetailsViewModel(image: image)
+                let detailsViewController = DetailsViewController(viewModel: detailsViewModel)
+                self.navigationController?.present(detailsViewController, animated: true)
             }).disposed(by: disposeBag)
         
         viewModel.fetchImages()
     }
+    
+    @IBAction func closeDidTap(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
 }

@@ -10,9 +10,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="QRCodeScanner" customModuleProvider="target">
             <connections>
                 <outlet property="bottomActionButton" destination="iDh-3x-sq0" id="rql-NQ-uEx"/>
+                <outlet property="detailsLabel" destination="eH7-Kd-esn" id="GBH-ZP-H1G"/>
                 <outlet property="imageView" destination="b2Z-W9-ido" id="kBm-UI-R6Z"/>
-                <outlet property="searchTextLabel" destination="eH7-Kd-esn" id="QMK-2p-T20"/>
                 <outlet property="spinner" destination="aNd-PI-aZa" id="MfL-6R-E4O"/>
+                <outlet property="titleLabel" destination="abJ-GJ-k1V" id="2mg-Ar-7nY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

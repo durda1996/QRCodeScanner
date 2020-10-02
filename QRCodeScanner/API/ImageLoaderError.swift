@@ -12,6 +12,7 @@ enum ImageLoaderError: Error {
     case invalidURL
     case noImagesFound
     case invalidImageUrl
+    case noImageUrl
     case decodingError(cause: Error)
     case networkError(cause: Error)
     case unknownError
@@ -27,6 +28,8 @@ extension ImageLoaderError: CustomDebugStringConvertible {
             result = "No images found"
         case .invalidImageUrl:
             result = "Invalid image URL"
+        case .noImageUrl:
+            result = "No image URL"
         case .decodingError(let cause):
             result = "Decoding error - \(cause.localizedDescription)"
         case .networkError(let cause):
