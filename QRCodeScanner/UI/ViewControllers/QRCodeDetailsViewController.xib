@@ -37,6 +37,9 @@
                     <state key="normal" title="Save">
                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                     </state>
+                    <connections>
+                        <action selector="bottomButtonDidTap:" destination="-1" eventType="touchUpInside" id="YBh-c5-bfd"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abJ-GJ-k1V">
                     <rect key="frame" x="20" y="64" width="374" height="24"/>

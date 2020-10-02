@@ -18,6 +18,8 @@ class QRCodeDetailsViewController: ActionSheetViewController {
     
     private let viewModel: QRCodeDetailsViewModelProtocol
     private let disposeBag = DisposeBag()
+    private let storageManager = ImageStorageManager()
+    private var imageLink = ""
     
     init(viewModel: QRCodeDetailsViewModelProtocol) {
         self.viewModel = viewModel
@@ -59,6 +61,11 @@ class QRCodeDetailsViewController: ActionSheetViewController {
             .bind(to: imageView.rx.image)
             .disposed(by: disposeBag)
         
+        viewModel.imageLink
+            .bind { imageLink in
+                self.imageLink = imageLink
+        }.disposed(by: disposeBag)
+        
         viewModel.error
             .observeOn(MainScheduler.instance)
             .bind { error in
@@ -67,5 +74,20 @@ class QRCodeDetailsViewController: ActionSheetViewController {
         }.disposed(by: disposeBag)
         
         viewModel.performFetch()
+    }
+    
+    @IBAction func bottomButtonDidTap(_ sender: UIButton) {
+        switch viewModel.bottomButtonAction {
+        case .save:
+            do {
+                try storageManager.saveImage(withName: viewModel.titleText, link: imageLink)
+                dismiss(animated: true)
+            } catch {
+                print(error)
+                // TODO: - show popup
+            }
+        case .close:
+            break
+        }
     }
 }
