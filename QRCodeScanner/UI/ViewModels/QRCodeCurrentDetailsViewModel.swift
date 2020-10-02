@@ -7,41 +7,36 @@
 //
 
 import UIKit
+import RxSwift
 
 struct QRCodeCurrentDetailsViewModel {
     private let imageLoader = ImageLoader()
     private let searchText: String
+    
+    let imageLink: PublishSubject<String> = PublishSubject()
+    let isLoading: PublishSubject<Bool> = PublishSubject()
+    let error: PublishSubject<ImageLoaderError> = PublishSubject()
     
     init(searchText: String) {
         self.searchText = searchText
     }
 }
 
-extension QRCodeCurrentDetailsViewModel: QRCodeDetailsViewModelProtocol {
-    var titleText: String {
-        "\"\(searchText)\""
-    }
+extension QRCodeCurrentDetailsViewModel : QRCodeDetailsViewModelProtocol {
+    var titleText: String { "\"\(searchText)\"" }
+    var bottomButtonAction: BottomButtonAction { .save }
     
-    var bottomButtonText: String {
-        "Save"
-    }
-    
-    func image(completion: @escaping ImageCompletion) {
+    func performFetch() {
+        isLoading.onNext(true)
         imageLoader.fetchImageLink(matching: titleText) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let imageLink):
-                    if let image = ImageValidator.image(for: imageLink) {
-                        completion(image)
-                    } else {
-                        completion(UIImage(named: "no-image")!)
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    completion(UIImage(named: "no-image")!)
-                }
+            self.isLoading.onNext(false)
+            switch result {
+            case .success(let imageLink):
+                self.imageLink.onNext(imageLink)
+                self.imageLink.onNext(imageLink)
+            case .failure(let error):
+                self.error.onNext(error)
             }
         }
     }
-    
 }

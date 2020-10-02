@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class QRCodeDetailsViewController: ActionSheetViewController {
     @IBOutlet private var searchTextLabel: UILabel!
@@ -15,6 +17,7 @@ class QRCodeDetailsViewController: ActionSheetViewController {
     @IBOutlet private var bottomActionButton: UIButton!
     
     private let viewModel: QRCodeDetailsViewModelProtocol
+    private let disposeBag = DisposeBag()
     
     init(viewModel: QRCodeDetailsViewModelProtocol) {
         self.viewModel = viewModel
@@ -34,24 +37,35 @@ class QRCodeDetailsViewController: ActionSheetViewController {
         
         bottomActionButton.layer.cornerRadius = 10.0
         searchTextLabel.text = viewModel.titleText
-        bottomActionButton.setTitle(viewModel.bottomButtonText, for: .normal)
+        bottomActionButton.setTitle(viewModel.bottomButtonAction.localizedString, for: .normal)
         
-        startLoading()
-        viewModel.image { image in
-            self.imageView.image = image
-            self.stopLoading()
-        }
-    }
-}
-
-private extension QRCodeDetailsViewController {
-    func startLoading() {
-        spinner.isHidden = false
-        spinner.startAnimating()
-    }
-    
-    func stopLoading() {
-        spinner.isHidden = true
-        spinner.stopAnimating()
+        viewModel.isLoading
+            .bind(to: spinner.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+        viewModel.isLoading
+            .toggle
+            .bind(to: spinner.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.isLoading
+            .toggle
+            .bind(to: bottomActionButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        viewModel.imageLink
+            .convertToImage
+            .observeOn(MainScheduler.instance)
+            .bind(to: imageView.rx.image)
+            .disposed(by: disposeBag)
+        
+        viewModel.error
+            .observeOn(MainScheduler.instance)
+            .bind { error in
+                print(error)
+                self.imageView.image = UIImage(named: "no-image")
+        }.disposed(by: disposeBag)
+        
+        viewModel.performFetch()
     }
 }

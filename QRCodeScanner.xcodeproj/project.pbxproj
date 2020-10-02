@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E5C4749325263DF400ACD1AE /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E5C4749225263DF400ACD1AE /* RxSwift */; };
 		E5C4749525263DF400ACD1AE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E5C4749425263DF400ACD1AE /* RxCocoa */; };
+		E5C4749725269CA500ACD1AE /* PublishSubject+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C4749625269CA500ACD1AE /* PublishSubject+Additions.swift */; };
 		E5D958F3252099CC00F420E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D958F2252099CC00F420E9 /* AppDelegate.swift */; };
 		E5D958F5252099CC00F420E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D958F4252099CC00F420E9 /* SceneDelegate.swift */; };
 		E5D958F7252099CC00F420E9 /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D958F6252099CC00F420E9 /* QRCodeScannerViewController.swift */; };
@@ -128,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				E5D959352520AA2200F420E9 /* UIViewController+Additions.swift */,
+				E5C4749625269CA500ACD1AE /* PublishSubject+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -252,6 +254,7 @@
 			files = (
 				E5D9592B2520A62800F420E9 /* ActionSheetViewController.swift in Sources */,
 				E5D9592C2520A62800F420E9 /* ActionSheetPresentationController.swift in Sources */,
+				E5C4749725269CA500ACD1AE /* PublishSubject+Additions.swift in Sources */,
 				E5D958F7252099CC00F420E9 /* QRCodeScannerViewController.swift in Sources */,
 				E5D959392520D14B00F420E9 /* QRCodeCurrentDetailsViewModel.swift in Sources */,
 				E5D9591025209D9300F420E9 /* GoogleImageResponse.swift in Sources */,

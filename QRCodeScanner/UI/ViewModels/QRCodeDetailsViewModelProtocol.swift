@@ -6,12 +6,28 @@
 //  Copyright © 2020 dmytrodurda. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import RxSwift
+
+enum BottomButtonAction {
+    case save
+    case close
+    
+    var localizedString: String {
+        switch self {
+        case .save: return "Save"
+        case .close: return "Close"
+        }
+    }
+}
 
 protocol QRCodeDetailsViewModelProtocol {
-    typealias ImageCompletion = (UIImage) -> Void
-    
     var titleText: String { get }
-    var bottomButtonText: String { get }
-    func image(completion: @escaping ImageCompletion)
+    var bottomButtonAction: BottomButtonAction { get }
+    
+    var imageLink: PublishSubject<String> { get }
+    var isLoading: PublishSubject<Bool> { get }
+    var error: PublishSubject<ImageLoaderError> { get }
+
+    func performFetch()
 }

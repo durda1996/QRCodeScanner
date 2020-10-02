@@ -15,8 +15,10 @@ enum ImageLoaderError: Error {
     case decodingError(cause: Error)
     case networkError(cause: Error)
     case unknownError
-    
-    var localizedDescription: String {
+}
+
+extension ImageLoaderError: CustomDebugStringConvertible {
+    var debugDescription: String {
         let result: String
         switch self {
         case .invalidURL:

@@ -68,7 +68,7 @@ private extension ImageLoader {
         do {
             let result = try JSONDecoder().decode(ImageLoaderResponse.self, from: data)
             
-            guard let googleImageItem = result.items.first else {
+            guard let googleImageItem = result.items?.first else {
                 completion(.failure(.noImagesFound))
                 return
             }

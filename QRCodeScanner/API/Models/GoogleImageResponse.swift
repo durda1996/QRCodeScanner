@@ -9,7 +9,7 @@
 import Foundation
 
 struct ImageLoaderResponse: Decodable {
-    let items: [Item]
+    let items: [Item]?
 }
 
 extension ImageLoaderResponse {
