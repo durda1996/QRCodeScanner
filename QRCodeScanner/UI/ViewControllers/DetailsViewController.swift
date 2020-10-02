@@ -59,7 +59,7 @@ class DetailsViewController: ActionSheetViewController {
         
         viewModel.imageLink
             .convertToImage
-            .observeOn(MainScheduler.instance)
+            .observeOn(MainScheduler.asyncInstance)
             .bind(to: imageView.rx.image)
             .disposed(by: disposeBag)
         
@@ -69,7 +69,7 @@ class DetailsViewController: ActionSheetViewController {
         }.disposed(by: disposeBag)
         
         viewModel.error
-            .observeOn(MainScheduler.instance)
+            .observeOn(MainScheduler.asyncInstance)
             .bind { error in
                 print(error)
                 self.imageView.image = UIImage(named: "no-image")
@@ -89,7 +89,7 @@ class DetailsViewController: ActionSheetViewController {
                 // TODO: - show popup
             }
         case .close:
-            break
+            dismiss(animated: true)
         }
     }
 }
