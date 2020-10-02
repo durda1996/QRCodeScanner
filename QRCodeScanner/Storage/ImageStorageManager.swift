@@ -8,12 +8,18 @@
 
 import Foundation
 
-struct ImageStorageManager: ContextProtocol {
-    func saveImage(withName name: String, link: String, at date: Date = Date()) throws {
+struct StorageManager: ContextProtocol {
+    func saveImage(withName name: String, imageLink: String, at date: Date = Date()) throws {
         let image = Image(context: context)
         image.name = name
-        image.link = link
+        image.link = imageLink
         image.savedAt = date
+        
+        try saveChanges()
+    }
+    
+    func deleteImage(_ image: Image) throws {
+        context.delete(image)
         
         try saveChanges()
     }

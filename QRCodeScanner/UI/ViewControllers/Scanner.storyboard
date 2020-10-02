@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="-651" y="129"/>
         </scene>
-        <!--Code Scanner View Controller-->
+        <!--Scanner View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="QRCodeScannerViewController" customModule="QRCodeScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ScannerViewController" customModule="QRCodeScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,6 +82,9 @@
                     <navigationItem key="navigationItem" id="i7x-SE-W3p">
                         <barButtonItem key="rightBarButtonItem" image="folder.fill" catalog="system" id="exJ-x4-gtF">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="showSavedResults:" destination="BYZ-38-t0r" id="YWT-z2-1GQ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

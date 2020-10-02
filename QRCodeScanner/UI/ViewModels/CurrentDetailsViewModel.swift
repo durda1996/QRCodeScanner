@@ -1,5 +1,5 @@
 //
-//  QRCodeResultViewModel.swift
+//  CurrentDetailsViewModel.swift
 //  QRCodeScanner
 //
 //  Created by Dmytro Durda on 27/09/2020.
@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-struct QRCodeCurrentDetailsViewModel {
+struct CurrentDetailsViewModel {
     private let imageLoader = ImageLoader()
     private let searchText: String
     
@@ -22,8 +22,8 @@ struct QRCodeCurrentDetailsViewModel {
     }
 }
 
-extension QRCodeCurrentDetailsViewModel : QRCodeDetailsViewModelProtocol {
-    var titleText: String { "\"\(searchText)\"" }
+extension CurrentDetailsViewModel : DetailsViewModelProtocol {
+    var titleText: String { searchText }
     var bottomButtonAction: BottomButtonAction { .save }
     
     func performFetch() {

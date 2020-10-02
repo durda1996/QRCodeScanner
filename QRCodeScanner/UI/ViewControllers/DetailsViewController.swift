@@ -1,5 +1,5 @@
 //
-//  QRCodeDetailsViewController.swift
+//  DetailsViewController.swift
 //  QRCodeScanner
 //
 //  Created by Dmytro Durda on 26/09/2020.
@@ -10,18 +10,18 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class QRCodeDetailsViewController: ActionSheetViewController {
+class DetailsViewController: ActionSheetViewController {
     @IBOutlet private var searchTextLabel: UILabel!
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var spinner: UIActivityIndicatorView!
     @IBOutlet private var bottomActionButton: UIButton!
     
-    private let viewModel: QRCodeDetailsViewModelProtocol
+    private let viewModel: DetailsViewModelProtocol
     private let disposeBag = DisposeBag()
-    private let storageManager = ImageStorageManager()
+    private let storageManager = StorageManager()
     private var imageLink = ""
     
-    init(viewModel: QRCodeDetailsViewModelProtocol) {
+    init(viewModel: DetailsViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -38,7 +38,7 @@ class QRCodeDetailsViewController: ActionSheetViewController {
         super.viewDidLoad()
         
         bottomActionButton.layer.cornerRadius = 10.0
-        searchTextLabel.text = viewModel.titleText
+        searchTextLabel.text = viewModel.titleText.inQuotationMarks
         bottomActionButton.setTitle(viewModel.bottomButtonAction.localizedString, for: .normal)
         
         viewModel.isLoading
@@ -80,7 +80,7 @@ class QRCodeDetailsViewController: ActionSheetViewController {
         switch viewModel.bottomButtonAction {
         case .save:
             do {
-                try storageManager.saveImage(withName: viewModel.titleText, link: imageLink)
+                try storageManager.saveImage(withName: viewModel.titleText, imageLink: imageLink)
                 dismiss(animated: true)
             } catch {
                 print(error)

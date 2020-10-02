@@ -1,5 +1,5 @@
 //
-//  QRCodeDetailsViewModelProtocol.swift
+//  DetailsViewModelProtocol.swift
 //  QRCodeScanner
 //
 //  Created by Dmytro Durda on 27/09/2020.
@@ -21,7 +21,7 @@ enum BottomButtonAction {
     }
 }
 
-protocol QRCodeDetailsViewModelProtocol {
+protocol DetailsViewModelProtocol {
     var titleText: String { get }
     var bottomButtonAction: BottomButtonAction { get }
     

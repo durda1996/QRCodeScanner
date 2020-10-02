@@ -1,5 +1,5 @@
 //
-//  QRCodeScannerViewController.swift
+//  ScannerViewController.swift
 //  QRCodeScanner
 //
 //  Created by Dmytro Durda on 27/09/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QRCodeScannerViewController: UIViewController {
+class ScannerViewController: UIViewController {
     @IBOutlet private var searchTextField: UITextField!
     @IBOutlet private var searchButton: UIButton!
     @IBOutlet private var imageVIew: UIImageView!
@@ -26,13 +26,19 @@ class QRCodeScannerViewController: UIViewController {
         
         setTransparentNavigationBar(false)
     }
-
+    
     @IBAction func searchImage(_ sender: UIButton) {
         let searchText = searchTextField.text ?? ""
-        let viewModel = QRCodeCurrentDetailsViewModel(searchText: searchText)
-        let viewController = QRCodeDetailsViewController(viewModel: viewModel)
+        let viewModel = CurrentDetailsViewModel(searchText: searchText)
+        let viewController = DetailsViewController(viewModel: viewModel)
         navigationController?.present(viewController, animated: true)
     }
     
+    @IBAction func showSavedResults(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "SavedResults", bundle: nil)
+        let controller = storyboard.instantiateInitialViewController() as! UINavigationController
+        controller.modalPresentationStyle = .fullScreen
+        navigationController?.present(controller, animated: true)
+    }
 }
 
