@@ -45,26 +45,31 @@ class DetailsViewController: ActionSheetViewController {
         detailsLabel.text = viewModel.detailsText
         bottomActionButton.setTitle(viewModel.bottomButtonAction.localizedString, for: .normal)
         
+        // show and animate spinner when image is loading
         viewModel.isLoading
             .bind(to: spinner.rx.isLoadingVisible)
             .disposed(by: disposeBag)
         
+        // disable bottom button when image is loading
         viewModel.isLoading
             .toggle
             .bind(to: bottomActionButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
+        // show image asynchronously
         viewModel.imageLink
             .convertToImage
             .observeOn(MainScheduler.asyncInstance)
             .bind(to: imageView.rx.image)
             .disposed(by: disposeBag)
         
+        // set private imageLink variable when image did load
         viewModel.imageLink
             .bind { imageLink in
                 self.imageLink = imageLink
         }.disposed(by: disposeBag)
         
+        // show no image icon when image loading failed
         viewModel.error
             .observeOn(MainScheduler.asyncInstance)
             .bind { error in
@@ -72,6 +77,7 @@ class DetailsViewController: ActionSheetViewController {
                 self.imageView.image = UIImage(named: "no-image")
         }.disposed(by: disposeBag)
         
+        // fetch image
         viewModel.performFetch()
     }
     

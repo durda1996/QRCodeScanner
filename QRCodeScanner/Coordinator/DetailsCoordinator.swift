@@ -25,6 +25,7 @@ class DetailsCoordinator: BaseCoordinator {
         let viewModel = CurrentDetailsViewModel(searchText: scannedText)
         let viewController = DetailsViewController(viewModel: viewModel)
         
+        // start scanning if details view did dismiss
         viewController.didDismiss
             .bind { isDismissed in
                 if isDismissed {

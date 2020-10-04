@@ -26,15 +26,18 @@ class SavedResultsViewController: UIViewController {
             fatalError("viewModel not exist. Add this value in the coordinator.")
         }
         
+        // show table view if saved images available
         viewModel.isImagesAvailable
             .toggle
             .bind(to: tableView.rx.isHidden)
             .disposed(by: disposeBag)
         
+        // show no saved images view if no pictures have been saved
         viewModel.isImagesAvailable
             .bind(to: noSavedImagesView.rx.isHidden)
             .disposed(by: disposeBag)
         
+        // cell configuration observer
         viewModel.images
             .bind(to: tableView.rx.items(cellIdentifier: "SavedResultsCell")) { (row, image, cell) in
             cell.textLabel?.text = image.name
@@ -42,10 +45,12 @@ class SavedResultsViewController: UIViewController {
             cell.selectionStyle = .none
         }.disposed(by: disposeBag)
         
+        // cell deletion observer
         tableView.rx.itemDeleted
             .subscribe(onNext: { viewModel.deleteImage(at: $0) })
             .disposed(by: disposeBag)
         
+        // cell selection observer
         tableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
                 guard let image = try? viewModel.images.value()[indexPath.row] else {
@@ -55,6 +60,7 @@ class SavedResultsViewController: UIViewController {
                 viewModel.showImages(forImage: image)
             }).disposed(by: disposeBag)
         
+        // fetch saved images
         viewModel.fetchImages()
     }
     

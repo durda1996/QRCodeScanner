@@ -25,11 +25,13 @@ class ScannerViewController: UIViewController {
         
         let scannerCaptureView = createScannerCaptureView(width: 200, height: 200)
         
+        // show details screen when qr code scanned successfully
         viewModel.scanner.foundText
             .bind { scannedText in
                 self.viewModel?.currentDetailsDidFind(scannedText: scannedText)
             }.disposed(by: disposeBag)
         
+        // show alert when qr code scanning failed
         viewModel.scanner.error
             .bind { error in
                 let alertController = UIAlertController(title: error.title, message: error.localizedDescription, preferredStyle: .alert)
@@ -38,6 +40,7 @@ class ScannerViewController: UIViewController {
                 self.viewModel?.scanner.stopSession()
             }.disposed(by: disposeBag)
         
+        // setup scanner with capture frame
         viewModel.scanner.setup(on: view, rectOfInterest: scannerCaptureView.frame)
         view.addSubview(scannerCaptureView)
     }
