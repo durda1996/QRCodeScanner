@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bDN-bX-LFU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bDN-bX-LFU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,67 +32,17 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Yv-vU-Uh3">
-                                <rect key="frame" x="20" y="383.5" width="374" height="129"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter image name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EkM-JK-uu9">
-                                        <rect key="frame" x="8" y="8" width="358" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3A4-rT-RAX">
-                                        <rect key="frame" x="8" y="37" width="358" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcj-SI-gss">
-                                        <rect key="frame" x="8" y="91" width="358" height="30"/>
-                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Search">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="searchImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4UB-sg-4Zg"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="EkM-JK-uu9" firstAttribute="leading" secondItem="3Yv-vU-Uh3" secondAttribute="leading" constant="8" id="CCw-R0-jd3"/>
-                                    <constraint firstAttribute="bottom" secondItem="qcj-SI-gss" secondAttribute="bottom" constant="8" id="K6M-8i-9X9"/>
-                                    <constraint firstItem="3A4-rT-RAX" firstAttribute="leading" secondItem="3Yv-vU-Uh3" secondAttribute="leading" constant="8" id="TBB-xP-IPT"/>
-                                    <constraint firstItem="qcj-SI-gss" firstAttribute="top" secondItem="3A4-rT-RAX" secondAttribute="bottom" constant="20" id="TMY-iM-OKH"/>
-                                    <constraint firstItem="qcj-SI-gss" firstAttribute="leading" secondItem="3Yv-vU-Uh3" secondAttribute="leading" constant="8" id="fSw-A9-DsW"/>
-                                    <constraint firstItem="EkM-JK-uu9" firstAttribute="top" secondItem="3Yv-vU-Uh3" secondAttribute="top" constant="8" id="k46-tV-Qba"/>
-                                    <constraint firstItem="3A4-rT-RAX" firstAttribute="top" secondItem="EkM-JK-uu9" secondAttribute="bottom" constant="8" id="oka-WC-jC2"/>
-                                    <constraint firstAttribute="trailing" secondItem="EkM-JK-uu9" secondAttribute="trailing" constant="8" id="rGA-ak-LvZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="qcj-SI-gss" secondAttribute="trailing" constant="8" id="uwe-JJ-z0D"/>
-                                    <constraint firstAttribute="trailing" secondItem="3A4-rT-RAX" secondAttribute="trailing" constant="8" id="wF9-pG-ML6"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="3Yv-vU-Uh3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="43k-Y8-3nj"/>
-                            <constraint firstItem="3Yv-vU-Uh3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="MLj-39-NfF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Yv-vU-Uh3" secondAttribute="trailing" constant="20" id="W4N-dn-Nvc"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="i7x-SE-W3p">
                         <barButtonItem key="rightBarButtonItem" image="folder.fill" catalog="system" id="exJ-x4-gtF">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="showSavedResults:" destination="BYZ-38-t0r" id="YWT-z2-1GQ"/>
+                                <action selector="showSavedResults:" destination="BYZ-38-t0r" id="vXY-6g-l5Y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="searchButton" destination="qcj-SI-gss" id="wPN-B6-sAC"/>
-                        <outlet property="searchTextField" destination="3A4-rT-RAX" id="I8K-nc-Gey"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,6 +50,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="folder.fill" catalog="system" width="128" height="95"/>
+        <image name="folder.fill" catalog="system" width="128" height="97"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

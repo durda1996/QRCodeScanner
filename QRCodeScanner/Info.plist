@@ -60,6 +60,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSCameraUsageDescription</key>
+    <string>QRCodeScanner requires access to your phone’s camera.</string>
     <key>UIUserInterfaceStyle</key>
     <string>Light</string>
 </dict>

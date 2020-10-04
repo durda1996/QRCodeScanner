@@ -17,6 +17,8 @@ class DetailsViewController: ActionSheetViewController {
     @IBOutlet private var spinner: UIActivityIndicatorView!
     @IBOutlet private var bottomActionButton: UIButton!
     
+    let didDismiss = BehaviorSubject(value: false)
+    
     private let viewModel: DetailsViewModelProtocol
     private let disposeBag = DisposeBag()
     private let storageManager = StorageManager()
@@ -71,6 +73,12 @@ class DetailsViewController: ActionSheetViewController {
         }.disposed(by: disposeBag)
         
         viewModel.performFetch()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        didDismiss.onNext(true)
     }
     
     @IBAction func bottomButtonDidTap(_ sender: UIButton) {
