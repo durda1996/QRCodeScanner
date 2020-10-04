@@ -35,7 +35,7 @@ class QRCodeScanner: NSObject {
     private var captureSession: AVCaptureSession!
     private var previewLayer: AVCaptureVideoPreviewLayer!
     
-    func setup(for view: UIView) {
+    func setup(on view: UIView, rectOfInterest: CGRect) {
         captureSession = AVCaptureSession()
 
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {
@@ -58,8 +58,13 @@ class QRCodeScanner: NSObject {
             error.onNext(.notSupported)
             return
         }
+        
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = view.layer.bounds
+        previewLayer.videoGravity = .resizeAspectFill
 
         let metadataOutput = AVCaptureMetadataOutput()
+        metadataOutput.rectOfInterest = previewLayer.metadataOutputRectConverted(fromLayerRect: rectOfInterest)//rectOfInterest
 
         if (captureSession.canAddOutput(metadataOutput)) {
             captureSession.addOutput(metadataOutput)
@@ -71,9 +76,6 @@ class QRCodeScanner: NSObject {
             return
         }
 
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = view.layer.bounds
-        previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
 
         captureSession.startRunning()

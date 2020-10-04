@@ -32,8 +32,22 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tcl-8P-dYh" customClass="ScannerFrameView" customModule="QRCodeScanner" customModuleProvider="target">
+                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="jc1-oL-atl"/>
+                                    <constraint firstAttribute="height" constant="200" id="oOk-sE-uTb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tcl-8P-dYh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="joa-cE-6df"/>
+                            <constraint firstItem="tcl-8P-dYh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yW9-98-Zwg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="i7x-SE-W3p">
                         <barButtonItem key="rightBarButtonItem" image="folder.fill" catalog="system" id="exJ-x4-gtF">

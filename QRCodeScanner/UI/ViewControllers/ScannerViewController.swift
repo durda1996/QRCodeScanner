@@ -18,6 +18,8 @@ class ScannerViewController: UIViewController {
 
         view.backgroundColor = UIColor.black
         
+        let scannerCaptureView = createScannerCaptureView(width: 200, height: 200)
+        
         scanner.foundText
             .bind { scannedText in
                 let viewModel = CurrentDetailsViewModel(searchText: scannedText)
@@ -41,7 +43,8 @@ class ScannerViewController: UIViewController {
                 self.scanner.stopSession()
             }.disposed(by: disposeBag)
         
-        scanner.setup(for: view)
+        scanner.setup(on: view, rectOfInterest: scannerCaptureView.frame)
+        view.addSubview(scannerCaptureView)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -67,5 +70,24 @@ class ScannerViewController: UIViewController {
         let controller = storyboard.instantiateInitialViewController() as! UINavigationController
         controller.modalPresentationStyle = .fullScreen
         navigationController?.present(controller, animated: true)
+    }
+}
+
+private extension ScannerViewController {
+    func createScannerCaptureView(width: CGFloat, height: CGFloat) -> UIView {
+        let frame = CGRect(
+            x: (view.frame.width / 2) - (width / 2),
+            y: (view.frame.height / 2) - (height / 2),
+            width: width,
+            height: height
+        )
+        
+        let captureView = UIView(frame: frame)
+        captureView.backgroundColor = .clear
+        
+        let drawer = ScannerFrameDrawer()
+        drawer.draw(on: captureView)
+        
+        return captureView
     }
 }
