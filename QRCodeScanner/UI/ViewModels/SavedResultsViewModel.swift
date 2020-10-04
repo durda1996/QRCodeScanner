@@ -15,7 +15,13 @@ class SavedResultsViewModel {
     let images = BehaviorSubject(value: [Image]())
     let isImagesAvailable: PublishSubject<Bool> = PublishSubject()
     
+    private let coordinator: SavedImagesCoordinatorProtocol
     private let storageManager = StorageManager()
+    
+    init(coordinator: SavedImagesCoordinatorProtocol) {
+        self.coordinator = coordinator
+    }
+    
     private lazy var fetchedResultsController: NSFetchedResultsController<Image> = {
         let fetchRequest: NSFetchRequest<Image> = Image.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Image.savedAt), ascending: true)]
@@ -57,5 +63,9 @@ class SavedResultsViewModel {
         } catch {
             print(error)
         }
+    }
+    
+    func showImages(forImage image: Image) {
+        coordinator.showDetails(forImage: image)
     }
 }

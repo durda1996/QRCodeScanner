@@ -10,40 +10,35 @@ import UIKit
 import RxSwift
 
 class ScannerViewController: UIViewController {
-    private let scanner = QRCodeScanner()
     private let disposeBag = DisposeBag()
+    
+    var viewModel: ScannerViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let viewModel = viewModel else {
+            fatalError("viewModel not exist. Add this value in the coordinator.")
+        }
 
         view.backgroundColor = UIColor.black
         
         let scannerCaptureView = createScannerCaptureView(width: 200, height: 200)
         
-        scanner.foundText
+        viewModel.scanner.foundText
             .bind { scannedText in
-                let viewModel = CurrentDetailsViewModel(searchText: scannedText)
-                let viewController = DetailsViewController(viewModel: viewModel)
-                
-                viewController.didDismiss
-                    .bind { isDismissed in
-                        if isDismissed {
-                            self.scanner.startScanning()
-                        }
-                    }.disposed(by: self.disposeBag)
-                
-                self.navigationController?.present(viewController, animated: true)
+                self.viewModel?.currentDetailsDidFind(scannedText: scannedText)
             }.disposed(by: disposeBag)
         
-        scanner.error
+        viewModel.scanner.error
             .bind { error in
                 let alertController = UIAlertController(title: error.title, message: error.localizedDescription, preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alertController, animated: true)
-                self.scanner.stopSession()
+                self.viewModel?.scanner.stopSession()
             }.disposed(by: disposeBag)
         
-        scanner.setup(on: view, rectOfInterest: scannerCaptureView.frame)
+        viewModel.scanner.setup(on: view, rectOfInterest: scannerCaptureView.frame)
         view.addSubview(scannerCaptureView)
     }
 
@@ -51,14 +46,14 @@ class ScannerViewController: UIViewController {
         super.viewWillAppear(animated)
         
         setTransparentNavigationBar(true)
-        scanner.startScanning()
+        viewModel?.scanner.startScanning()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         setTransparentNavigationBar(false)
-        scanner.stopScanning()
+        viewModel?.scanner.stopScanning()
     }
 
     override var prefersStatusBarHidden: Bool {
@@ -66,10 +61,7 @@ class ScannerViewController: UIViewController {
     }
     
     @IBAction func showSavedResults(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard(name: "SavedResults", bundle: nil)
-        let controller = storyboard.instantiateInitialViewController() as! UINavigationController
-        controller.modalPresentationStyle = .fullScreen
-        navigationController?.present(controller, animated: true)
+        viewModel?.savedResultsDidTap()
     }
 }
 

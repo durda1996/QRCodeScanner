@@ -12,6 +12,7 @@
 		E5737D0B2529523F0053C236 /* IBDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5737D0A2529523F0053C236 /* IBDesignableView.swift */; };
 		E5737D112529E90A0053C236 /* QRCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5737D102529E90A0053C236 /* QRCodeScanner.swift */; };
 		E5737D16252A0C5F0053C236 /* ScannerFrameDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5737D15252A0C5F0053C236 /* ScannerFrameDrawer.swift */; };
+		E5737D1E252A398C0053C236 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5737D1D252A398C0053C236 /* DetailsCoordinator.swift */; };
 		E5C4749325263DF400ACD1AE /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E5C4749225263DF400ACD1AE /* RxSwift */; };
 		E5C4749525263DF400ACD1AE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E5C4749425263DF400ACD1AE /* RxCocoa */; };
 		E5C4749725269CA500ACD1AE /* Reactive+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C4749625269CA500ACD1AE /* Reactive+Additions.swift */; };
@@ -21,8 +22,11 @@
 		E5C474A325277D0100ACD1AE /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C474A225277D0100ACD1AE /* String+Additions.swift */; };
 		E5C474A5252785A800ACD1AE /* SavedResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C474A4252785A800ACD1AE /* SavedResultsViewModel.swift */; };
 		E5C474A82527B4D400ACD1AE /* SavedImageDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C474A72527B4D400ACD1AE /* SavedImageDetailsViewModel.swift */; };
+		E5C474AB2527DCDA00ACD1AE /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C474AA2527DCDA00ACD1AE /* BaseCoordinator.swift */; };
+		E5C474AD2527DF7A00ACD1AE /* ScannerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C474AC2527DF7A00ACD1AE /* ScannerCoordinator.swift */; };
+		E5C474AF2527F2D000ACD1AE /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C474AE2527F2D000ACD1AE /* ScannerViewModel.swift */; };
+		E5C474B12527F85C00ACD1AE /* SavedImagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C474B02527F85C00ACD1AE /* SavedImagesCoordinator.swift */; };
 		E5D958F3252099CC00F420E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D958F2252099CC00F420E9 /* AppDelegate.swift */; };
-		E5D958F5252099CC00F420E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D958F4252099CC00F420E9 /* SceneDelegate.swift */; };
 		E5D958F7252099CC00F420E9 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D958F6252099CC00F420E9 /* ScannerViewController.swift */; };
 		E5D958FD252099CC00F420E9 /* Scanner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5D958FB252099CC00F420E9 /* Scanner.xcdatamodeld */; };
 		E5D958FF252099D200F420E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D958FE252099D200F420E9 /* Assets.xcassets */; };
@@ -49,6 +53,7 @@
 		E5737D0A2529523F0053C236 /* IBDesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBDesignableView.swift; sourceTree = "<group>"; };
 		E5737D102529E90A0053C236 /* QRCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanner.swift; sourceTree = "<group>"; };
 		E5737D15252A0C5F0053C236 /* ScannerFrameDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerFrameDrawer.swift; sourceTree = "<group>"; };
+		E5737D1D252A398C0053C236 /* DetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
 		E5C4749625269CA500ACD1AE /* Reactive+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Additions.swift"; sourceTree = "<group>"; };
 		E5C4749A252750C900ACD1AE /* SavedResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedResultsViewController.swift; sourceTree = "<group>"; };
 		E5C4749E2527612E00ACD1AE /* SavedResults.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SavedResults.storyboard; sourceTree = "<group>"; };
@@ -56,9 +61,12 @@
 		E5C474A225277D0100ACD1AE /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		E5C474A4252785A800ACD1AE /* SavedResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedResultsViewModel.swift; sourceTree = "<group>"; };
 		E5C474A72527B4D400ACD1AE /* SavedImageDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedImageDetailsViewModel.swift; sourceTree = "<group>"; };
+		E5C474AA2527DCDA00ACD1AE /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		E5C474AC2527DF7A00ACD1AE /* ScannerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerCoordinator.swift; sourceTree = "<group>"; };
+		E5C474AE2527F2D000ACD1AE /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		E5C474B02527F85C00ACD1AE /* SavedImagesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedImagesCoordinator.swift; sourceTree = "<group>"; };
 		E5D958EF252099CC00F420E9 /* QRCodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D958F2252099CC00F420E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E5D958F4252099CC00F420E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E5D958F6252099CC00F420E9 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		E5D958FC252099CC00F420E9 /* QRCodeScanner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QRCodeScanner.xcdatamodel; sourceTree = "<group>"; };
 		E5D958FE252099D200F420E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +120,17 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
+		E5C474A92527DCBC00ACD1AE /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E5C474AA2527DCDA00ACD1AE /* BaseCoordinator.swift */,
+				E5C474AC2527DF7A00ACD1AE /* ScannerCoordinator.swift */,
+				E5C474B02527F85C00ACD1AE /* SavedImagesCoordinator.swift */,
+				E5737D1D252A398C0053C236 /* DetailsCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		E5D958E6252099CC00F420E9 = {
 			isa = PBXGroup;
 			children = (
@@ -134,9 +153,9 @@
 				E5D9591E2520A1D700F420E9 /* UI */,
 				E5D9590925209D9300F420E9 /* API */,
 				E5D95944252146A400F420E9 /* Storage */,
+				E5C474A92527DCBC00ACD1AE /* Coordinator */,
 				E5D9591F2520A20200F420E9 /* Extensions */,
 				E5D958F2252099CC00F420E9 /* AppDelegate.swift */,
-				E5D958F4252099CC00F420E9 /* SceneDelegate.swift */,
 				E5D958FE252099D200F420E9 /* Assets.xcassets */,
 				E5D95903252099D200F420E9 /* Info.plist */,
 			);
@@ -198,6 +217,7 @@
 			children = (
 				E5C474A62527AD0800ACD1AE /* Details */,
 				E5C474A4252785A800ACD1AE /* SavedResultsViewModel.swift */,
+				E5C474AE2527F2D000ACD1AE /* ScannerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -324,6 +344,7 @@
 				E5C474A325277D0100ACD1AE /* String+Additions.swift in Sources */,
 				E5C4749725269CA500ACD1AE /* Reactive+Additions.swift in Sources */,
 				E5D958F7252099CC00F420E9 /* ScannerViewController.swift in Sources */,
+				E5C474AF2527F2D000ACD1AE /* ScannerViewModel.swift in Sources */,
 				E5D959392520D14B00F420E9 /* CurrentDetailsViewModel.swift in Sources */,
 				E5737D16252A0C5F0053C236 /* ScannerFrameDrawer.swift in Sources */,
 				E5C474A12527779D00ACD1AE /* Date+Additions.swift in Sources */,
@@ -331,19 +352,22 @@
 				E5D9591025209D9300F420E9 /* GoogleImageResponse.swift in Sources */,
 				E5D95943252109FA00F420E9 /* ImageStorageManager.swift in Sources */,
 				E5D9593B2520DC5900F420E9 /* DetailsViewModelProtocol.swift in Sources */,
+				E5C474B12527F85C00ACD1AE /* SavedImagesCoordinator.swift in Sources */,
 				E5C474A5252785A800ACD1AE /* SavedResultsViewModel.swift in Sources */,
+				E5C474AD2527DF7A00ACD1AE /* ScannerCoordinator.swift in Sources */,
 				E5C4749C252750C900ACD1AE /* SavedResultsViewController.swift in Sources */,
 				E5737D0B2529523F0053C236 /* IBDesignableView.swift in Sources */,
+				E5737D1E252A398C0053C236 /* DetailsCoordinator.swift in Sources */,
 				E5D95946252146B800F420E9 /* ContextProtocol.swift in Sources */,
 				E5D959412520F3CB00F420E9 /* ImageValidator.swift in Sources */,
 				E5D958F3252099CC00F420E9 /* AppDelegate.swift in Sources */,
+				E5C474AB2527DCDA00ACD1AE /* BaseCoordinator.swift in Sources */,
 				E5D959312520A63D00F420E9 /* DetailsViewController.swift in Sources */,
 				E5D9590F25209D9300F420E9 /* ImageLoader.swift in Sources */,
 				E5D959362520AA2200F420E9 /* UIViewController+Additions.swift in Sources */,
 				E5737D0425294B030053C236 /* NoSavedImagesView.swift in Sources */,
 				E5D9590E25209D9300F420E9 /* ImageLoaderError.swift in Sources */,
 				E5D958FD252099CC00F420E9 /* Scanner.xcdatamodeld in Sources */,
-				E5D958F5252099CC00F420E9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

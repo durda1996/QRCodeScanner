@@ -12,14 +12,19 @@ import RxCocoa
 
 
 class SavedResultsViewController: UIViewController {
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var noSavedImagesView: NoSavedImagesView!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var noSavedImagesView: NoSavedImagesView!
     
-    private let viewModel = SavedResultsViewModel()
+    var viewModel: SavedResultsViewModel?
+    
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let viewModel = viewModel else {
+            fatalError("viewModel not exist. Add this value in the coordinator.")
+        }
         
         viewModel.isImagesAvailable
             .toggle
@@ -38,18 +43,16 @@ class SavedResultsViewController: UIViewController {
         }.disposed(by: disposeBag)
         
         tableView.rx.itemDeleted
-            .subscribe(onNext: { self.viewModel.deleteImage(at: $0) })
+            .subscribe(onNext: { viewModel.deleteImage(at: $0) })
             .disposed(by: disposeBag)
         
         tableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
-                guard let image = try? self.viewModel.images.value()[indexPath.row] else {
+                guard let image = try? viewModel.images.value()[indexPath.row] else {
                     return
                 }
                 
-                let detailsViewModel = SavedImageDetailsViewModel(image: image)
-                let detailsViewController = DetailsViewController(viewModel: detailsViewModel)
-                self.navigationController?.present(detailsViewController, animated: true)
+                viewModel.showImages(forImage: image)
             }).disposed(by: disposeBag)
         
         viewModel.fetchImages()
