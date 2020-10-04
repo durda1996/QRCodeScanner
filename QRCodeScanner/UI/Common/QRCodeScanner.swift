@@ -64,13 +64,13 @@ class QRCodeScanner: NSObject {
         previewLayer.videoGravity = .resizeAspectFill
 
         let metadataOutput = AVCaptureMetadataOutput()
-        metadataOutput.rectOfInterest = previewLayer.metadataOutputRectConverted(fromLayerRect: rectOfInterest)//rectOfInterest
 
         if (captureSession.canAddOutput(metadataOutput)) {
             captureSession.addOutput(metadataOutput)
 
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             metadataOutput.metadataObjectTypes = [.qr]
+            metadataOutput.rectOfInterest = previewLayer.metadataOutputRectConverted(fromLayerRect: rectOfInterest)
         } else {
             error.onNext(.notSupported)
             return
