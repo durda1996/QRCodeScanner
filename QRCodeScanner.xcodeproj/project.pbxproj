@@ -12,7 +12,7 @@
 		E5737D0B2529523F0053C236 /* IBDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5737D0A2529523F0053C236 /* IBDesignableView.swift */; };
 		E5C4749325263DF400ACD1AE /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E5C4749225263DF400ACD1AE /* RxSwift */; };
 		E5C4749525263DF400ACD1AE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E5C4749425263DF400ACD1AE /* RxCocoa */; };
-		E5C4749725269CA500ACD1AE /* PublishSubject+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C4749625269CA500ACD1AE /* PublishSubject+Additions.swift */; };
+		E5C4749725269CA500ACD1AE /* Reactive+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C4749625269CA500ACD1AE /* Reactive+Additions.swift */; };
 		E5C4749C252750C900ACD1AE /* SavedResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C4749A252750C900ACD1AE /* SavedResultsViewController.swift */; };
 		E5C4749F2527612E00ACD1AE /* SavedResults.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5C4749E2527612E00ACD1AE /* SavedResults.storyboard */; };
 		E5C474A12527779D00ACD1AE /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C474A02527779D00ACD1AE /* Date+Additions.swift */; };
@@ -45,7 +45,7 @@
 		E5737D0325294B030053C236 /* NoSavedImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSavedImagesView.swift; sourceTree = "<group>"; };
 		E5737D0725294B350053C236 /* NoSavedImagesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoSavedImagesView.xib; sourceTree = "<group>"; };
 		E5737D0A2529523F0053C236 /* IBDesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBDesignableView.swift; sourceTree = "<group>"; };
-		E5C4749625269CA500ACD1AE /* PublishSubject+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PublishSubject+Additions.swift"; sourceTree = "<group>"; };
+		E5C4749625269CA500ACD1AE /* Reactive+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Additions.swift"; sourceTree = "<group>"; };
 		E5C4749A252750C900ACD1AE /* SavedResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedResultsViewController.swift; sourceTree = "<group>"; };
 		E5C4749E2527612E00ACD1AE /* SavedResults.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SavedResults.storyboard; sourceTree = "<group>"; };
 		E5C474A02527779D00ACD1AE /* Date+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Additions.swift"; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				E5D959352520AA2200F420E9 /* UIViewController+Additions.swift */,
-				E5C4749625269CA500ACD1AE /* PublishSubject+Additions.swift */,
+				E5C4749625269CA500ACD1AE /* Reactive+Additions.swift */,
 				E5C474A02527779D00ACD1AE /* Date+Additions.swift */,
 				E5C474A225277D0100ACD1AE /* String+Additions.swift */,
 			);
@@ -315,7 +315,7 @@
 				E5D9592B2520A62800F420E9 /* ActionSheetViewController.swift in Sources */,
 				E5D9592C2520A62800F420E9 /* ActionSheetPresentationController.swift in Sources */,
 				E5C474A325277D0100ACD1AE /* String+Additions.swift in Sources */,
-				E5C4749725269CA500ACD1AE /* PublishSubject+Additions.swift in Sources */,
+				E5C4749725269CA500ACD1AE /* Reactive+Additions.swift in Sources */,
 				E5D958F7252099CC00F420E9 /* ScannerViewController.swift in Sources */,
 				E5D959392520D14B00F420E9 /* CurrentDetailsViewModel.swift in Sources */,
 				E5C474A12527779D00ACD1AE /* Date+Additions.swift in Sources */,

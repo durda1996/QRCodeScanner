@@ -44,12 +44,7 @@ class DetailsViewController: ActionSheetViewController {
         bottomActionButton.setTitle(viewModel.bottomButtonAction.localizedString, for: .normal)
         
         viewModel.isLoading
-            .bind(to: spinner.rx.isAnimating)
-            .disposed(by: disposeBag)
-        
-        viewModel.isLoading
-            .toggle
-            .bind(to: spinner.rx.isHidden)
+            .bind(to: spinner.rx.isLoadingVisible)
             .disposed(by: disposeBag)
         
         viewModel.isLoading
