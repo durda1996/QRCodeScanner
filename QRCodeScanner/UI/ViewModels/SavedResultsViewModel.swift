@@ -13,6 +13,7 @@ import CoreData
 
 class SavedResultsViewModel {
     let images = BehaviorSubject(value: [Image]())
+    let isImagesAvailable: PublishSubject<Bool> = PublishSubject()
     
     private let storageManager = StorageManager()
     private lazy var fetchedResultsController: NSFetchedResultsController<Image> = {
@@ -29,8 +30,11 @@ class SavedResultsViewModel {
         do {
             try fetchedResultsController.performFetch()
             
-            if let savedImages = fetchedResultsController.fetchedObjects {
+            if let savedImages = fetchedResultsController.fetchedObjects, !savedImages.isEmpty {
+                isImagesAvailable.onNext(true)
                 images.onNext(savedImages)
+            } else {
+                isImagesAvailable.onNext(false)
             }
         } catch {
             fatalError("Failed to perform fetch: \(error)")
@@ -45,7 +49,11 @@ class SavedResultsViewModel {
             fetchedImages.remove(at: indexPath.row)
             try storageManager.deleteImage(image)
             
-            images.onNext(fetchedImages)
+            if !fetchedImages.isEmpty {
+                images.onNext(fetchedImages)
+            } else {
+                isImagesAvailable.onNext(false)
+            }
         } catch {
             print(error)
         }

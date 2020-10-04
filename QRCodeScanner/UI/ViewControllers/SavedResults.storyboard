@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cHa-FK-smp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cHa-FK-smp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,13 +33,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RT9-hv-ybz" customClass="NoSavedImagesView" customModule="QRCodeScanner" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qtS-7L-nIt">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="p5f-HO-aKA">
                                     <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SavedResultsCell" textLabel="ZyW-qs-ssK" detailTextLabel="UuY-M2-LrS" style="IBUITableViewCellStyleValue1" id="r6I-1E-Y8N">
@@ -48,7 +54,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZyW-qs-ssK">
-                                                    <rect key="frame" x="20" y="12" width="35.5" height="20.5"/>
+                                                    <rect key="frame" x="20" y="12" width="35" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -67,14 +73,18 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="70E-js-AIp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qtS-7L-nIt" firstAttribute="trailing" secondItem="70E-js-AIp" secondAttribute="trailing" id="3zf-Vy-5wV"/>
                             <constraint firstItem="qtS-7L-nIt" firstAttribute="top" secondItem="70E-js-AIp" secondAttribute="top" id="9Ar-CP-Qx7"/>
+                            <constraint firstItem="RT9-hv-ybz" firstAttribute="bottom" secondItem="70E-js-AIp" secondAttribute="bottom" id="Brn-ww-g4R"/>
+                            <constraint firstItem="RT9-hv-ybz" firstAttribute="trailing" secondItem="70E-js-AIp" secondAttribute="trailing" id="Hm4-O3-ROh"/>
+                            <constraint firstItem="RT9-hv-ybz" firstAttribute="leading" secondItem="70E-js-AIp" secondAttribute="leading" id="aSy-jE-0OU"/>
                             <constraint firstItem="qtS-7L-nIt" firstAttribute="bottom" secondItem="70E-js-AIp" secondAttribute="bottom" id="aqC-Jy-Gtt"/>
                             <constraint firstItem="qtS-7L-nIt" firstAttribute="leading" secondItem="70E-js-AIp" secondAttribute="leading" id="hdM-Jl-Qz1"/>
+                            <constraint firstItem="RT9-hv-ybz" firstAttribute="top" secondItem="70E-js-AIp" secondAttribute="top" id="he4-ls-Wdt"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="70E-js-AIp"/>
                     </view>
                     <navigationItem key="navigationItem" title="Saved images" id="aDY-Gz-ALR">
                         <barButtonItem key="rightBarButtonItem" title="Close" id="e3x-Ch-vFj">
@@ -84,6 +94,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="noSavedImagesView" destination="RT9-hv-ybz" id="p3P-bK-Kqh"/>
                         <outlet property="tableView" destination="qtS-7L-nIt" id="DW1-B0-KCN"/>
                     </connections>
                 </viewController>
@@ -92,4 +103,9 @@
             <point key="canvasLocation" x="108.69565217391305" y="8.7053571428571423"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

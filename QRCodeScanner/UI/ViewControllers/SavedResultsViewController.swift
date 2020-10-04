@@ -13,12 +13,22 @@ import RxCocoa
 
 class SavedResultsViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var noSavedImagesView: NoSavedImagesView!
     
     private let viewModel = SavedResultsViewModel()
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.isImagesAvailable
+            .toggle
+            .bind(to: tableView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.isImagesAvailable
+            .bind(to: noSavedImagesView.rx.isHidden)
+            .disposed(by: disposeBag)
         
         viewModel.images
             .bind(to: tableView.rx.items(cellIdentifier: "SavedResultsCell")) { (row, image, cell) in
